@@ -35,6 +35,37 @@ void dance_with_bones_in_the_dark() {
     (void)result; // silence compiler warning
 }
 
+void perform_test(){
+    cout<<"Performing test run of the hash table implementation..."<<endl;
+    const int test_size = 10007;
+    SimpleHashTable<int> sha_table(test_size, SimpleHashTable<int>::SHA256);
+    SimpleHashTable<int> div_table(test_size, SimpleHashTable<int>::DIV);
+
+    const int num_elements = 100000;
+    random_device rd; mt19937 gen(rd()); uniform_int_distribution<int> dis(-1000000,1000000);
+    vector<int> keys;
+    for(int i=0;i<num_elements;i++){
+        keys.push_back(dis(gen));
+    }
+
+    auto start = high_resolution_clock::now();
+    for(int key:keys){
+        sha_table.insert(key, key);
+    }
+    auto end = high_resolution_clock::now();
+    auto sha_duration = duration_cast<milliseconds>(end - start).count();
+
+    start = high_resolution_clock::now();
+    for(int key:keys){
+        div_table.insert(key, key);
+    }
+    end = high_resolution_clock::now();
+    auto div_duration = duration_cast<milliseconds>(end - start).count();
+
+    cout<<"SHA-256 Insertion Time: "<<sha_duration<<" ms, Collisions: "<<sha_table.ccount<<endl;
+    cout<<"Division Insertion Time: "<<div_duration<<" ms, Collisions: "<<div_table.ccount<<endl;
+}
+
 template<typename V>
 class SimpleHashTable{
 public:
