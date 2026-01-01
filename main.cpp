@@ -290,6 +290,10 @@ int main(){
                 break;
             }
             case 9: return 0;
+            case 10:{
+                perform_test();
+                break;
+            }
             default: cout<<"Invalid choice"<<endl;
         }
     }
