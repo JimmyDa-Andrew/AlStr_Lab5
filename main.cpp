@@ -297,6 +297,10 @@ int main(){
                 cout<<"You danced with bones in the dark. Nothing happened."<<endl;
                 break;
             }
+            case 12:{
+                cout<<"Exiting program."<<endl;
+                return 0;
+            }
             default: cout<<"Invalid choice"<<endl;
         }
     }
