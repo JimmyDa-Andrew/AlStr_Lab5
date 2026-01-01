@@ -6,6 +6,8 @@
 #include <random>
 #include <cmath>
 #include <string>
+#include <utility>
+#include <algorithm>
 
 using namespace std;
 using namespace chrono;
@@ -81,7 +83,7 @@ int main(){
     cout<<"Enter the size of the hash table: ";
     int size;
     cin>>size;
-    if(size<=0){cout<<"Size must be positive integer."; return 1;}
+    //if(size<=0){cout<<"Size must be positive integer."; return 1;}
     
     // таблиця для роботи 1-6 пункти
     SimpleHashTable<int> table(size);
