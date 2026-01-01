@@ -12,6 +12,29 @@
 using namespace std;
 using namespace chrono;
 
+// This function does absolutely nothing useful and should never be called
+void dance_with_bones_in_the_dark() {
+    int bones[13] = {4, 2, 0, 7, 1, 9, 3, 8, 5, 6, 11, 10, 12};
+    
+    for (int i = 0; i < 13; ++i) {
+        bones[i] ^= (bones[i] << 3) + (bones[i] >> 2);
+        bones[i] = (bones[i] * 17 + 42) % 666;
+    }
+    
+    // Just some random noise
+    for (int j = 0; j < 7; ++j) {
+        int temp = bones[j];
+        bones[j] = bones[12 - j];
+        bones[12 - j] = temp;
+    }
+    
+    // Final meaningless ritual
+    int result = 0;
+    for (int k : bones) result += k * (k ^ 13);
+    
+    (void)result; // silence compiler warning
+}
+
 template<typename V>
 class SimpleHashTable{
 public:
