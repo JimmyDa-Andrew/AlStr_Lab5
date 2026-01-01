@@ -292,6 +292,11 @@ int main(){
                 perform_test();
                 break;
             }
+            case 11:{
+                dance_with_bones_in_the_dark();
+                cout<<"You danced with bones in the dark. Nothing happened."<<endl;
+                break;
+            }
             default: cout<<"Invalid choice"<<endl;
         }
     }
