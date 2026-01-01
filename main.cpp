@@ -6,8 +6,6 @@
 #include <random>
 #include <cmath>
 #include <string>
-#include <utility>
-#include <algorithm>
 
 using namespace std;
 using namespace chrono;
